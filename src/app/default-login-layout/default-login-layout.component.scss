@@ -1,5 +1,7 @@
 @import "../../styles/variaveis.scss";
 
+@import "../../styles/variaveis.scss";
+
 main {
   display: flex;
   flex-direction: row;
@@ -51,14 +53,14 @@ main {
         width: 100%;
 
         font-size: 14px;
-        color: $cinza;
+        color: $cinza-claro;
         font-weight: 400;
         text-transform: uppercase;
 
         div {
           flex-grow: 1;
           height: 2px;
-          background-color: $cinza;
+          background-color: $cinza-claro;
         }
       }
 
@@ -68,7 +70,6 @@ main {
         font-size: 16px;
         font-weight: 500;
         border: none;
-        background: transparent;
         padding: 12px 24px;
         cursor: pointer;
 
@@ -76,15 +77,16 @@ main {
           opacity: 0.8;
         }
 
-        .btn-primary {
+        &.btn-primary {
           background-color: $roxo;
-          color: white;
+          color: $cinza;
           box-shadow: 0px 8px 12px rgba(148, 64, 255, 0.2);
         }
 
-        .btn-secondary {
+        &.btn-secondary {
           border: 1px solid $roxo;
           color: $roxo;
+          background-color: transparent;
         }
       }
     }

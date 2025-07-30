@@ -1,3 +1,6 @@
+@import "../../../styles/variaveis.scss";
+
+
 form {
     width: 100%;
     display: flex;
@@ -5,12 +8,11 @@ form {
     gap: 24px;
     margin-bottom: 34px;
 
-
 }
 
-spam {
+.forget {
     font-size: 14px;
     text-decoration: underline;
-    color: #000000;
+    color: $azul;
     text-align: end;
 }
