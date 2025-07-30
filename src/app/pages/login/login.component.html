@@ -2,9 +2,30 @@
     title="Login into your account"
     primaryBtntext="Login Now"
     secondaryBtnText="SignUp Now"
+    (submit)="submit()"
+    (navigate)="navigate()"
+    [disabledPrimaryBtn]="!loginForm.valid"
 >
 
-    <form>
-        
+    <form [formGroup]="loginForm">
+        <app-primary-input
+            formControlName="email"
+            inputName="email"
+            type="email"
+            label="Email"
+            placeholder="johndoe@gmail.com"
+        >
+            <img src="/src/assets/svg/carta.svg">
+        </app-primary-input>
+
+        <app-primary-input
+            formControlName="password"
+            inputName="password"
+            type="password"
+            label="Your password"
+        >
+            <img src="/src/assets/svg/cadeado.svg">
+        </app-primary-input>
+        <span>Forget your password?</span>
     </form>
 </app-default-login-layout>

@@ -6,8 +6,15 @@ import { Router } from '@angular/router';
 import { LoginService } from '../../service/login.service';
 import { ToastrService } from 'ngx-toastr'; // Importe o ToastrService
 
+interface SignUpForm {
+  name: FormControl,
+  email: FormControl,
+  password:FormControl,
+  passwordConfirm:FormControl
+}
+
 @Component({
-  selector: 'app-login',
+  selector: 'app-signup',
   standalone: true,
   imports: [
     DefaultLoginLayoutComponent,
@@ -17,26 +24,28 @@ import { ToastrService } from 'ngx-toastr'; // Importe o ToastrService
   providers: [
     LoginService // Mantenha apenas o LoginService aqui
   ],
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  templateUrl: './signup.component.html',
+  styleUrls: ['./singup.component.scss']
 })
-export class LoginComponent {
-  loginForm!: FormGroup;
+export class SignUpComponent {
+  signUpForm!: FormGroup;
 
   constructor(
     private router: Router,
     private loginService: LoginService,
     private toastr: ToastrService // Injete o ToastrService
   ) {
-    this.loginForm = new FormGroup({
+    this.signUpForm = new FormGroup({
+      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)])
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      passwordConfirm: new FormControl('', [Validators.required, Validators.minLength(6)])
     });
   }
 
   submit() {
-    if (this.loginForm.valid) {
-      const { email, password } = this.loginForm.value;
+    if (this.signUpForm.valid) {
+      const { email, password } = this.signUpForm.value;
       this.loginService.login(email, password).subscribe({
         next: () => this.toastr.success("Login feito com sucesso!"),
         error: () => this.toastr.error("Erro inesperado, tente novamente!")
@@ -45,6 +54,6 @@ export class LoginComponent {
   }
 
   navigate() {
-    this.router.navigate(["signup"]);
+    this.router.navigate(["login"]);
   }
 }
