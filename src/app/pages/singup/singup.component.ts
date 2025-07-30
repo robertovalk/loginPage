@@ -1,31 +1,32 @@
 import { Component } from '@angular/core';
-import { DefaultLoginLayoutComponent } from '../../default-login-layout/default-login-layout.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { PrimaryInputComponent } from '../../components/primary-input/primary-input.component';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
+import { CommonModule } from '@angular/common'; // ✅ Importado para uso de *ngIf
 import { LoginService } from '../../service/login.service';
-import { ToastrService } from 'ngx-toastr'; // Importe o ToastrService
+import { DefaultLoginLayoutComponent } from '../../default-login-layout/default-login-layout.component';
+import { PrimaryInputComponent } from '../../components/primary-input/primary-input.component';
 
 interface SignUpForm {
-  name: FormControl,
-  email: FormControl,
-  password:FormControl,
-  passwordConfirm:FormControl
+  name: FormControl;
+  email: FormControl;
+  password: FormControl;
+  passwordConfirm: FormControl;
 }
 
 @Component({
   selector: 'app-signup',
   standalone: true,
   imports: [
-    DefaultLoginLayoutComponent,
+    CommonModule, // ✅ Adicionado para suportar *ngIf e outras diretivas básicas
     ReactiveFormsModule,
+    DefaultLoginLayoutComponent,
     PrimaryInputComponent,
   ],
-  providers: [
-    LoginService // Mantenha apenas o LoginService aqui
-  ],
+  providers: [LoginService],
   templateUrl: './signup.component.html',
-  styleUrls: ['./singup.component.scss']
+  styleUrls: ['./signup.component.scss'] // verifique se o nome do arquivo está correto
 })
 export class SignUpComponent {
   signUpForm!: FormGroup;
@@ -33,7 +34,7 @@ export class SignUpComponent {
   constructor(
     private router: Router,
     private loginService: LoginService,
-    private toastr: ToastrService // Injete o ToastrService
+    private toastr: ToastrService
   ) {
     this.signUpForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(3)]),
