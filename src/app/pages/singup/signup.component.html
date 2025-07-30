@@ -4,16 +4,15 @@
     secondaryBtnText="Login Now"
     (submit)="submit()"
     (navigate)="navigate()"
-    [disabledPrimaryBtn]="!signupForm.valid"
+    [disabledPrimaryBtn]="!signUpForm.valid"
 >
-    <form [formGroup]="signupForm">
-
-            <app-primary-input
+    <form [formGroup]="signUpForm">
+        <app-primary-input
             formControlName="name"
             inputName="name"
             type="text"
-            label="Your Mame"
-            placeholder="john Doe"
+            label="Your Name"
+            placeholder="John Doe"
         >
             <img src="/src/assets/svg/carta.svg">
         </app-primary-input>
@@ -37,7 +36,7 @@
             <img src="/src/assets/svg/cadeado.svg">
         </app-primary-input>
 
-         <app-primary-input
+        <app-primary-input
             formControlName="passwordConfirm"
             inputName="passwordConfirm"
             type="password"
@@ -45,6 +44,9 @@
         >
             <img src="/src/assets/svg/cadeado.svg">
         </app-primary-input>
-    
+        
+        <div *ngIf="signUpForm.hasError('mismatch')" class="error-message">
+            As senhas não coincidem!
+        </div>
     </form>
 </app-default-login-layout>
