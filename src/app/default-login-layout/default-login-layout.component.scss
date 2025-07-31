@@ -92,3 +92,61 @@ main {
     }
   }
 }
+
+/* === Media Queries === */
+
+/* Mobile (até 425px) */
+@media (max-width: 425px) {
+  main {
+    flex-direction: column;
+    padding: 20px;
+
+    .main-section {
+      display: none; // esconde a imagem do menino
+    }
+
+    .form-section {
+      width: 100%;
+      padding: 0;
+
+      h2 {
+        font-size: 18px;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .btn-wrapper {
+        gap: 20px;
+
+        button {
+          font-size: 14px;
+          padding: 10px 20px;
+        }
+
+        .divider {
+          font-size: 12px;
+          gap: 10px;
+        }
+      }
+    }
+  }
+}
+
+/* Tablet (até 768px) */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+
+    .main-section {
+      display: none; // imagem some
+    }
+
+    .form-section {
+      order: 1;
+      padding: 0 20px;
+      width: 100%;
+    }
+  }
+}
+
+

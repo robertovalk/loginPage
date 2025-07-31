@@ -33,3 +33,35 @@
     width: 100%;
   }
 }
+
+/* === Media Queries === */
+
+/* Mobile */
+@media (max-width: 425px) {
+  .input-wrapper {
+    font-size: 14px;
+
+    .input-content {
+      flex-direction: row;
+
+      .icon {
+        padding: 10px;
+
+        img {
+          height: 16px;
+        }
+      }
+    }
+
+    input {
+      padding: 10px 0 10px 16px;
+    }
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .input-wrapper {
+    font-size: 15px;
+  }
+}

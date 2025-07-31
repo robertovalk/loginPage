@@ -14,3 +14,17 @@ spam {
 
     text-align: end;
 }
+
+/* === Media Queries === */
+
+@media (max-width: 425px) {
+  form {
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  spam {
+    font-size: 12px;
+    text-align: center;
+  }
+}

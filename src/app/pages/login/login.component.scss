@@ -16,3 +16,22 @@ form {
     color: $azul;
     text-align: end;
 }
+
+/* === Media Queries === */
+
+@media (max-width: 425px) {
+  form {
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .forget {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .forget {
+    text-align: center;
+  }
+}
